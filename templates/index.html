@@ -183,7 +183,7 @@
 					</li>
 
 					<li>
-						<a href="category-01.html">Business</a>
+						<a href="category-01.html">Busines</a>
 					</li>
 
 					<li>
@@ -2017,7 +2017,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-27.jpg" alt="IMG">
+															<img src="{% static 'images/post-27.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2048,7 +2048,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-26.jpg" alt="IMG">
+															<img src="{% static 'images/post-26.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2079,7 +2079,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-34.jpg" alt="IMG">
+															<img src="{% static 'images/post-34.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2126,7 +2126,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-50.jpg" alt="IMG">
+															<img src="{% static 'images/post-50.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2157,7 +2157,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-08.jpg" alt="IMG">
+															<img src="{% static 'images/post-08.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2188,7 +2188,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-07.jpg" alt="IMG">
+															<img src="{% static 'images/post-07.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2219,7 +2219,7 @@
 													<!-- Item post -->	
 													<div>
 														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-															<img src="images/post-06.jpg" alt="IMG">
+															<img src="{% static 'images/post-06.jpg' %}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
@@ -2417,26 +2417,20 @@
 
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item">
-										<a class="nav-link active" data-toggle="tab" href="#tab1-1" role="tab">All</a>
-									</li>
+    <!-- All tugmasi -->
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#tab-all" role="tab">All</a>
+    </li>
 
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-2" role="tab">Celebrity</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-3" role="tab">Movies</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-4" role="tab">Music</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab1-5" role="tab">Games</a>
-									</li>
-
+    <!-- Barcha kategoriyalar -->
+    {% for category in categories %}
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tab-{{ category.id }}" role="tab">
+            {{ category.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
 									<li class="nav-item-more dropdown dis-none">
 										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
 											<i class="fa fa-ellipsis-h"></i>
@@ -2465,19 +2459,19 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-05.jpg" alt="IMG">
+													<img src="{{ news.0.image.url }}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-															American live music lorem ipsum dolor sit amet consectetur 
+															{{news.0.title}}
 														</a>
 													</h5>
 
 													<span class="cl8">
 														<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-															Music
+															{{ news.0.category.name }}
 														</a>
 
 														<span class="f1-s-3 m-rl-3">
@@ -2496,19 +2490,19 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-06.jpg" alt="IMG">
+													<img src="{{ news.1.image.url }}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{news.1.title}}
 														</a>
 													</h5>
 
 													<span class="cl8">
 														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-															Music
+															{{ news.1.category.name }}
 														</a>
 
 														<span class="f1-s-3 m-rl-3">
@@ -2525,19 +2519,19 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-07.jpg" alt="IMG">
+													<img src="{{news.2.image.url}}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news.2.title }}
 														</a>
 													</h5>
 
 													<span class="cl8">
 														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-															Game
+															{{ news.2.category.name }}
 														</a>
 
 														<span class="f1-s-3 m-rl-3">
@@ -2554,19 +2548,19 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
+													<img src="{{news.3.image.url}}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news.3.title }}
 														</a>
 													</h5>
 
 													<span class="cl8">
 														<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-															Celebrity
+															{{ news.3.category.name }}
 														</a>
 
 														<span class="f1-s-3 m-rl-3">
@@ -2590,7 +2584,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-09.jpg" alt="IMG">
+													<img src="{% static 'images/post-09.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -2621,7 +2615,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
+													<img src="{% static 'images/post-08.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2650,7 +2644,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-06.jpg" alt="IMG">
+													<img src="{% static 'images/post-06.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2679,7 +2673,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-07.jpg" alt="IMG">
+													<img src="{% static 'images/post-07.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2715,7 +2709,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
+													<img src="{% static 'images/post-08.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -2746,7 +2740,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-07.jpg" alt="IMG">
+													<img src="{% static 'images/post-07.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2775,7 +2769,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-06.jpg" alt="IMG">
+													<img src="{% static 'images/post-06.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2804,7 +2798,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-05.jpg" alt="IMG">
+													<img src="{% static 'images/post-05.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2840,7 +2834,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-06.jpg" alt="IMG">
+													<img src="{% static 'images/post-06.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -2871,7 +2865,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-09.jpg" alt="IMG">
+													<img src="{% static 'images/post-09.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2900,7 +2894,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-07.jpg" alt="IMG">
+													<img src="{% static 'images/post-07.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2929,7 +2923,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
+													<img src="{% static 'images/post-08.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -2965,7 +2959,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-07.jpg" alt="IMG">
+													<img src="{% static 'images/post-07.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -2996,7 +2990,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-08.jpg" alt="IMG">
+													<img src="{% static 'images/post-08.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3025,7 +3019,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-06.jpg" alt="IMG">
+													<img src="{% static 'images/post-06.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3054,7 +3048,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-09.jpg" alt="IMG">
+													<img src="{% static 'images/post-09.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3090,7 +3084,7 @@
 							<div class="tab01-head how2 how2-cl2 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
 								<h3 class="f1-m-2 cl13 tab01-title">
-									Business
+									Jahon
 								</h3>
 
 								<!-- Nav tabs -->
@@ -3100,11 +3094,11 @@
 									</li>
 
 									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab2-2" role="tab">Finance</a>
+										<a class="nav-link" data-toggle="tab" href="#tab2-2" role="tab">{{news.0.category.name}}</a>
 									</li>
 
 									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#tab2-3" role="tab">Money & Markets</a>
+										<a class="nav-link" data-toggle="tab" href="#tab2-3" role="tab">{{news.1.category.name}}</a>
 									</li>
 
 									<li class="nav-item">
@@ -3139,13 +3133,13 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-10.jpg" alt="IMG">
+													<img src="{{ news1.0.image.url }}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-															Bitcoin lorem ipsum dolor sit amet consectetur 
+															{{ news1.0.title }}
 														</a>
 													</h5>
 
@@ -3170,13 +3164,13 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-11.jpg" alt="IMG">
+													<img src="{{ news1.1.image.url }}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news1.1.title }}
 														</a>
 													</h5>
 
@@ -3199,13 +3193,13 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-12.jpg" alt="IMG">
+													<img src="{{ news1.2.image.url }}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news1.2.title }}
 														</a>
 													</h5>
 
@@ -3228,13 +3222,13 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-13.jpg" alt="IMG">
+													<img src="{{ news1.3.image.url }}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news1.1.title }}
 														</a>
 													</h5>
 
@@ -3264,7 +3258,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-13.jpg" alt="IMG">
+													<img src="{% static 'images/post-13.jpg' %} " alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -3295,7 +3289,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-12.jpg" alt="IMG">
+													<img src="{% static 'images/post-12.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3324,7 +3318,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-11.jpg" alt="IMG">
+													<img src="{% static 'images/post-11.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3353,7 +3347,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-10.jpg" alt="IMG">
+													<img src="{% static 'images/post-10.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3389,7 +3383,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-11.jpg" alt="IMG">
+													<img src="{% static 'images/post-11.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -3420,7 +3414,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-12.jpg" alt="IMG">
+													<img src="{% static 'images/post-12.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3449,7 +3443,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-13.jpg" alt="IMG">
+													<img src="{% static 'images/post-13.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3478,7 +3472,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-10.jpg" alt="IMG">
+													<img src="{% static 'images/post-10.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3514,7 +3508,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-12.jpg" alt="IMG">
+													<img src="{% static 'images/post-12.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -3545,7 +3539,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-13.jpg" alt="IMG">
+													<img src="{% static 'images/post-13.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3574,7 +3568,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-10.jpg" alt="IMG">
+													<img src="{% static 'images/post-10.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3603,7 +3597,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-11.jpg" alt="IMG">
+													<img src="{% static 'images/post-11.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3639,7 +3633,7 @@
 							<div class="tab01-head how2 how2-cl3 bocl12 flex-s-c m-r-10 m-r-0-sr991">
 								<!-- Brand tab -->
 								<h3 class="f1-m-2 cl14 tab01-title">
-									Travel
+									Uzbekiston
 								</h3>
 
 								<!-- Nav tabs -->
@@ -3692,13 +3686,13 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-14.jpg" alt="IMG">
+													<img src="{{news2.0.image.url}}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-															You wish lorem ipsum dolor sit amet consectetur 
+															{{ news2.0.title}}
 														</a>
 													</h5>
 
@@ -3723,13 +3717,13 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-15.jpg" alt="IMG">
+													<img src="{{news2.1.image.url}}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news2.1.title}}
 														</a>
 													</h5>
 
@@ -3752,13 +3746,13 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-16.jpg" alt="IMG">
+													<img src="{{ news2.2.image.url }}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news2.2.title}}
 														</a>
 													</h5>
 
@@ -3781,13 +3775,13 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-17.jpg" alt="IMG">
+													<img src="{{ news2.3.image.url }}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-															Donec metus orci, malesuada et lectus vitae
+															{{ news2.3.title}}
 														</a>
 													</h5>
 
@@ -3817,7 +3811,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-15.jpg" alt="IMG">
+													<img src="{% static 'images/post-15.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -3848,7 +3842,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-16.jpg" alt="IMG">
+													<img src="{% static 'images/post-16.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3877,7 +3871,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-17.jpg" alt="IMG">
+													<img src="{% static 'images/post-17.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3906,7 +3900,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-18.jpg" alt="IMG">
+													<img src="{% static 'images/post-18.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -3942,7 +3936,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-16.jpg" alt="IMG">
+													<img src="{% static 'images/post-16.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -3973,7 +3967,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-17.jpg" alt="IMG">
+													<img src="{% static 'images/post-17.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4002,7 +3996,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-18.jpg" alt="IMG">
+													<img src="{% static 'images/post-18.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4031,7 +4025,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-14.jpg" alt="IMG">
+													<img src="{% static 'images/post-14.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4067,7 +4061,7 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-17.jpg" alt="IMG">
+													<img src="{% static 'images/post-17.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
@@ -4098,7 +4092,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-18.jpg" alt="IMG">
+													<img src="{% static 'images/post-18.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4127,7 +4121,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-14.jpg" alt="IMG">
+													<img src="{% static 'images/post-14.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4156,7 +4150,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-15.jpg" alt="IMG">
+													<img src="{% static 'images/post-15.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4192,13 +4186,13 @@
 											<!-- Item post -->	
 											<div class="m-b-30">
 												<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-													<img src="images/post-18.jpg" alt="IMG">
+													<img src="{% static 'images/post-18.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="p-t-20">
 													<h5 class="p-b-5">
 														<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-															You wish lorem ipsum dolor sit amet consectetur 
+															{{ news1.1.title }}
 														</a>
 													</h5>
 
@@ -4223,7 +4217,7 @@
 											<!-- Item post -->	
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-17.jpg" alt="IMG">
+													<img src="{% static 'images/post-17.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4252,7 +4246,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-16.jpg" alt="IMG">
+													<img src="{% static 'images/post-16.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4281,7 +4275,7 @@
 											<!-- Item post -->
 											<div class="flex-wr-sb-s m-b-30">
 												<a href="blog-detail-01.html" class="size-w-1 wrap-pic-w hov1 trans-03">
-													<img src="images/post-15.jpg" alt="IMG">
+													<img src="{% static 'images/post-15.jpg' %}" alt="IMG">
 												</a>
 
 												<div class="size-w-2">
@@ -4320,7 +4314,7 @@
 						<div>
 							<div class="how2 how2-cl4 flex-s-c">
 								<h3 class="f1-m-2 cl3 tab01-title">
-									Most Popular
+									Eng Kop korilganlar
 								</h3>
 							</div>
 
@@ -4331,7 +4325,7 @@
 									</div>
 
 									<a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit
+										{{ news.0.title }}
 									</a>
 								</li>
 
@@ -4341,7 +4335,7 @@
 									</div>
 
 									<a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
-										Proin velit consectetur non neque
+										{{ news.1.title }}
 									</a>
 								</li>
 
@@ -4351,7 +4345,7 @@
 									</div>
 
 									<a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
-										Nunc vestibulum, enim vitae condimentum volutpat lobortis ante
+										{{ news.2.title }}
 									</a>
 								</li>
 
@@ -4361,7 +4355,7 @@
 									</div>
 
 									<a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
-										Proin velit justo consectetur non neque elementum
+										{{ news.3.title }}
 									</a>
 								</li>
 
@@ -4371,7 +4365,7 @@
 									</div>
 
 									<a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
-										Proin velit consectetur non neque
+										{{ news.0.title }}
 									</a>
 								</li>
 							</ul>
@@ -4380,7 +4374,7 @@
 						<!--  -->
 						<div class="flex-c-s p-t-8">
 							<a href="#">
-								<img class="max-w-full" src="images/banner-02.jpg" alt="IMG">
+								<img class="max-w-full" src="{% static 'images/banner-02.jpg' %}" alt="IMG">
 							</a>
 						</div>
 						
@@ -4452,7 +4446,7 @@
 	<div class="container">
 		<div class="flex-c-c">
 			<a href="#">
-				<img class="max-w-full" src="images/banner-01.jpg" alt="IMG">
+				<img class="max-w-full" src="{% static 'images/banner-01.jpg' %}" alt="IMG">
 			</a>
 		</div>
 	</div>
@@ -4473,7 +4467,7 @@
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-01.jpg" alt="IMG">
+									<img src="{% static 'images/latest-01.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
@@ -4504,7 +4498,7 @@
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-02.jpg" alt="IMG">
+									<img src="{% static 'images/latest-02.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
@@ -4535,7 +4529,7 @@
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-03.jpg" alt="IMG">
+									<img src="{% static 'images/latest-03.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
@@ -4566,7 +4560,7 @@
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-04.jpg" alt="IMG">
+									<img src="{% static 'images/latest-04.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
@@ -4597,7 +4591,7 @@
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-05.jpg" alt="IMG">
+									<img src="{% static 'images/latest-05.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
@@ -4628,7 +4622,7 @@
 							<!-- Item latest -->	
 							<div class="m-b-45">
 								<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-									<img src="images/latest-06.jpg" alt="IMG">
+									<img src="{% static 'images/latest-06.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
@@ -4669,7 +4663,7 @@
 
 							<div>
 								<div class="wrap-pic-w pos-relative">
-									<img src="images/video-01.jpg" alt="IMG">
+									<img src="{% static 'images/video-01.jpg' %}" alt="IMG">
 
 									<button class="s-full ab-t-l flex-c-c fs-32 cl0 hov-cl10 trans-03" data-toggle="modal" data-target="#modal-video-01">
 										<span class="fab fa-youtube"></span>
@@ -4775,7 +4769,7 @@
 					<div class="col-lg-4 p-b-20">
 						<div class="size-h-3 flex-s-c">
 							<a href="index.html">
-								<img class="max-s-full" src="images/icons/logo-02.png" alt="LOGO">
+								<img class="max-s-full" src="{% static 'images/icons/logo-02.png' %}" alt="LOGO">
 							</a>
 						</div>
 
@@ -4822,7 +4816,7 @@
 						<ul>
 							<li class="flex-wr-sb-s p-b-20">
 								<a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
-									<img src="images/popular-post-01.jpg" alt="IMG">
+									<img src="{% static 'images/popular-post-01.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="size-w-5">
@@ -4840,7 +4834,7 @@
 
 							<li class="flex-wr-sb-s p-b-20">
 								<a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
-									<img src="images/popular-post-02.jpg" alt="IMG">
+									<img src="{% static 'images/popular-post-02.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="size-w-5">
@@ -4858,7 +4852,7 @@
 
 							<li class="flex-wr-sb-s p-b-20">
 								<a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
-									<img src="images/popular-post-03.jpg" alt="IMG">
+									<img src="{% static 'images/popular-post-03.jpg' %}" alt="IMG">
 								</a>
 
 								<div class="size-w-5">
